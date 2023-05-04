@@ -1,17 +1,33 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
-    public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+    public static void printSeparator() {
+        System.out.println("++++++++++++++++++++++++");
+        System.out.println("------------------------");
+    }
+    public static void  printIssues(int issueCount) {
+        System.out.println(issueCount);
+    }
+    public static int sum(int [] numbers) {
+        int sum = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            sum = sum + numbers[i];
         }
+        return sum;
+    }
+    public static void main(String[] args) {
+        task1();
+    }
+    public static void task1() {
+        System.out.println("Задача 1");
+        int[] issuesByMonth = {4, 6, 7, 9, 2, 5, 12, 3, 7, 10, 6, 7, 1, 8};
+        printSeparator();
+        for (int i = 0; i < issuesByMonth.length; i++) {
+            printIssues(issuesByMonth[i]);
+            if ((i +1) % 3 == 0) {
+                printSeparator();
+            }
+        }
+        printSeparator();
+        int total = sum(issuesByMonth);
+        printIssues(total);
     }
 }
