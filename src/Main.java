@@ -1,33 +1,70 @@
+import java.time.LocalDate;
+
 public class Main {
-    public static void printSeparator() {
-        System.out.println("++++++++++++++++++++++++");
-        System.out.println("------------------------");
-    }
-    public static void  printIssues(int issueCount) {
-        System.out.println(issueCount);
-    }
-    public static int sum(int [] numbers) {
-        int sum = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            sum = sum + numbers[i];
-        }
-        return sum;
-    }
+
     public static void main(String[] args) {
         task1();
+        task2();
+        task3();
     }
+
+    public static void determinationLeapYear(int a) {
+        if (a % 4 == 0 && a % 100 != 0 || a % 400 == 0) {
+            System.out.println(a + " год - высокосный год");
+        } else {
+            System.out.println(a + " год - невысокосный год");
+        }
+    }
+
     public static void task1() {
         System.out.println("Задача 1");
-        int[] issuesByMonth = {4, 6, 7, 9, 2, 5, 12, 3, 7, 10, 6, 7, 1, 8};
-        printSeparator();
-        for (int i = 0; i < issuesByMonth.length; i++) {
-            printIssues(issuesByMonth[i]);
-            if ((i +1) % 3 == 0) {
-                printSeparator();
+        int year = 2021;
+        determinationLeapYear(year);
+    }
+
+    public static void determinationOfOS(int a, int b) {
+        if (a == 0) {
+            if (b >= 2015) {
+                System.out.println("Установите обычную версию приложения для IOS по ссылке");
+            } else {
+                System.out.println("Установите облегченную версию приложения для IOS по ссылке");
             }
         }
-        printSeparator();
-        int total = sum(issuesByMonth);
-        printIssues(total);
+        if (a == 1) {
+            if (b >= 2015) {
+                System.out.println("Установите обычную версию приложения для Android по ссылке");
+            } else {
+                System.out.println("Установите облегченную версию приложения для Android по ссылке");
+            }
+        }
+    }
+
+    public static void task2() {
+        System.out.println("Задача 2");
+        int operationSystem = 0;
+        int currentYear = LocalDate.now().getYear();
+        determinationOfOS(operationSystem, currentYear);
+    }
+
+    public static int determinationOfTheTerm (int deliveryDays, int deliveryDistance) {
+        if (deliveryDistance > 20) {
+            deliveryDays++;
+        }
+        if (deliveryDistance > 60) {
+            deliveryDays++;
+        }
+        if (deliveryDistance > 100) {
+            System.out.println("Доставки нет");
+        } else {
+            System.out.println("Потребуется дней " + deliveryDays);
+        }
+        return deliveryDays;
+    }
+
+    public static void task3() {
+        System.out.println("Задача 3");
+        int deliveryDistance = 95;
+        int deliveryDays = 1;
+        determinationOfTheTerm(deliveryDays, deliveryDistance);
     }
 }
