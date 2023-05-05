@@ -46,7 +46,6 @@ public class Main {
         determinationOfOS(operationSystem, currentYear);
     }
 
-
     public static int determinationOfTheTerm (int deliveryDays, int deliveryDistance) {
         if (deliveryDistance > 20) {
             deliveryDays++;
